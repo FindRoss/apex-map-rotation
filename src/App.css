@@ -1,12 +1,11 @@
 html,
 body,
-#root,
-.App,
-.App > div {
+#root {
   height: 100%;
 }
 
 body {
-  background-color: #000;
   color: #fff;
+  /* bg-blue-900 */
+  background-color: rgba(17, 24, 39, 1);
 }

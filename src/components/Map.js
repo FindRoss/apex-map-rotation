@@ -1,59 +1,68 @@
-import MapPanel from './MapPanel';
-import { useState, useEffect } from 'react';
-
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
+function Map({ data, title, image }) {
 
 
-const singleDigit = (num) => {
-  let len = num.toString().length;
+  const timeSetter = time => {
+    let date = new Date(time);
+    let [hours, minutes] = [date.getHours(), date.getMinutes()];
 
-  return (len < 2) ? `0${num}` : num;
-}
-
-
-function Map({ data: { current, next } }) {
-
-  const [timer, setTimer] = useState(current.remainingSecs);
-  const [displayTime, setDisplayTime] = useState(current.remainingTimer);
-
-
-  useEffect(() => {
-
-    setTimeout(() => {
-      let secs = timer
-      let minutes = Math.floor(secs / 60);
-      let hours = Math.floor(minutes / 60);
-      let rMinutes = minutes - (hours * 60);
-      let seconds = secs - minutes * 60;
-
-      let currentTime = `0${hours}:${singleDigit(rMinutes)}:${singleDigit(seconds)}`;
-
-      if (hours <= 0 && rMinutes <= 0 && seconds <= 0) {
-        currentTime = '00:00:00';
-      }
-
-      setDisplayTime(currentTime);
-      setTimer(secs - 1);
-
-    }, 1000)
-
-  }, [timer]);
+    if (minutes.toString().length === 1) {
+      minutes = `0${minutes}`;
+    }
+    return `${hours + 1}:${minutes}`;
+  };
 
 
   return (
-    <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>Hello World</Grid>
-          <Grid item xs={4}>Hello World</Grid>
-          <Grid item xs={4}>Hello World</Grid>
-        </Grid>
-      </Box>
-      <MapPanel data={current} title={'Current'} timer={displayTime} />
-      <MapPanel data={next} title={'Next'} />
-    </div>
+    <>
+      <figure className="rounded-xl p-0 bg-indigo-900 text-gray-800 text-white mb-6 md:mb-0 overflow-hidden">
+        <img src={image} alt="Worlds Edge" className="w-full h-auto object-fill" />
+        <div className="p-8 text-center md:text-left space-y-2">
+          <div className="text-white">
+            <div class="text-gray-400 uppercase">
+              {title}
+            </div>
+            <h1 className="flex-auto text-xl font-semibold text-white my-2">
+              {data.map}
+            </h1>
+            <div>
+              <span className="text-sm font-medium text-gray-300">Start</span>
+              <p className="text-lg font-semibold text-white">
+                {timeSetter(data.readableDate_start)}
+              </p>
+            </div>
+            <div>
+              <span className="text-sm font-medium text-gray-300">End</span>
+              <p className="text-lg font-semibold text-white">
+                {timeSetter(data.readableDate_end)}
+              </p>
+            </div>
+            <div>
+              <span className="text-sm font-medium text-gray-300">Duration</span>
+              <p className="text-lg font-semibold text-white">
+                {data.DurationInMinutes} minutes
+              </p>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </>
   )
 }
 
-export default Map
+export default Map;
+
+
+
+
+  // let remainingMins;
+
+  // if (data.hasOwnProperty("timer")) {
+  //   remainingMins = <p>Time remaining: <strong>{data.timer}</strong></p>
+  // };
+
+  // original remainingMinds was like: 
+  // let remainingMins;
+
+  // if (props.hasOwnProperty("timer")) {
+  //   remainingMins = <p>Time remaining: <strong>{props.timer}</strong></p>
+  // };

@@ -1,20 +1,10 @@
-import React from 'react'
-import apexLogo from '../media/apex-legends-logo.png';
-import Grid from '@material-ui/core/Grid';
+import apexLogo from '../assets/al-logo.png';
 
 const Loader = () => {
   return (
-    <>
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        style={{ height: "100%" }}
-      >
-        <img src={apexLogo} alt="apex legends logo" />
-      </Grid>
-    </>
+    <div className="flex flex-col justify-center items-center" style={{ marginTop: "100px" }}>
+      <img src={apexLogo} alt="apex legends logo" className="rounded-xl bg-black h-auto shadow-lg" />
+    </div>
   )
 }
 
