@@ -6,6 +6,8 @@ import Nav from './components/Nav';
 import Loader from './components/Loader';
 import Map from './components/Playlist';
 
+require('dotenv').config()
+
 function App() {
   const [battleRoyale, setBattleRoyale] = useState({});
   const [ranked, setRanked] = useState({});
