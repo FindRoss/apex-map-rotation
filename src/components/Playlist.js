@@ -28,14 +28,14 @@ function Playlist({ data: { current, next } }) {
   return (
     <div className="container max-w-4xl py-6 mx-auto">
       <div className="md:flex">
-        <div className="md:flex-auto md:px-4">
+        <div className="flex-1 md:px-4">
           <Map
             data={current}
             title={'Current'}
             image={mapPicker(current.code)}
           />
         </div>
-        <div className="md:flex-auto md:px-4 md:flex">
+        <div className="flex-1 md:px-4">
           <Map
             data={next}
             title={'Next'}
