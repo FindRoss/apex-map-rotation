@@ -15,7 +15,7 @@ function Map({ data, title, image }) {
   return (
     <>
       <figure className="rounded-xl p-0 bg-indigo-900 text-gray-800 text-white mb-6 md:mb-0 overflow-hidden">
-        <img src={image} alt="Worlds Edge" className="w-full h-auto object-fill" />
+        <img src={image} alt="Worlds Edge" className="h-auto w-full object-fit" />
         <div className="p-8 text-center md:text-left space-y-2">
           <div className="text-white">
             <div class="text-gray-400 uppercase">

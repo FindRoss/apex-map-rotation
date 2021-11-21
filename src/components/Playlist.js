@@ -1,10 +1,10 @@
 import Map from './Map';
 import { useState, useEffect } from 'react';
 
-import worldsEdge from '../assets/Worlds_Edge-bg.png';
-import kingsCanyon from '../assets/kings-canyon.jpg';
-import olympus from '../assets/olympus.jpg';
-import stormPoint from '../assets/storm_point.png'
+import worldsEdge from '../assets/worlds-edge-map.jpeg';
+import kingsCanyon from '../assets/kings-canyon-map.jpg';
+import olympus from '../assets/olympus-map.jpg';
+import stormPoint from '../assets/storm-point-map.jpg';
 
 function Playlist({ data: { current, next } }) {
 
