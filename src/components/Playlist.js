@@ -1,7 +1,7 @@
 import Map from './Map';
 import { useState, useEffect } from 'react';
 
-import worldsEdge from '../assets/worlds-edge.jpg';
+import worldsEdge from '../assets/Worlds_Edge-bg.png';
 import kingsCanyon from '../assets/kings-canyon.jpg';
 import olympus from '../assets/olympus.jpg';
 import stormPoint from '../assets/storm_point.png'
@@ -12,7 +12,7 @@ function Playlist({ data: { current, next } }) {
     switch (map) {
       case "Olympus":
         return olympus;
-      case "World's Edge":
+      case "worlds_edge_rotation":
         return worldsEdge;
       case "Kings Canyon":
         return kingsCanyon;
@@ -22,7 +22,6 @@ function Playlist({ data: { current, next } }) {
         return null;
     }
   };
-
 
 
   return (
@@ -94,3 +93,5 @@ export default Playlist;
 
 //   }, 1000)
 // }, [timer]);
+
+
