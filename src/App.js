@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-gray-900 h-full">
+    <div className="h-full">
       <Nav />
       {(Object.keys(battleRoyale).length === 0) ? <Loader /> : <Map data={battleRoyale} />}
     </div>

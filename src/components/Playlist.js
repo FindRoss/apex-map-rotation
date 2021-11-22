@@ -10,11 +10,11 @@ function Playlist({ data: { current, next } }) {
 
   const mapPicker = map => {
     switch (map) {
-      case "Olympus":
+      case "olympus_rotation":
         return olympus;
       case "worlds_edge_rotation":
         return worldsEdge;
-      case "Kings Canyon":
+      case "kings_canyon_rotation":
         return kingsCanyon;
       case "storm_point_rotation":
         return stormPoint;
@@ -25,16 +25,17 @@ function Playlist({ data: { current, next } }) {
 
 
   return (
-    <div className="container max-w-4xl py-6 mx-auto">
+    <div className="md:container md:mx-auto md:px-0 px-4 py-4">
+      <h2 className="text-xl pb-4">Pubs</h2>
       <div className="md:flex">
-        <div className="flex-1 md:px-4">
+        <div className="flex-1 md:pr-2">
           <Map
             data={current}
             title={'Current'}
             image={mapPicker(current.code)}
           />
         </div>
-        <div className="flex-1 md:px-4">
+        <div className="flex-1 md:pl-2">
           <Map
             data={next}
             title={'Next'}

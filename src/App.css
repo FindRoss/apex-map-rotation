@@ -5,7 +5,10 @@ body,
 }
 
 body {
-  color: #fff;
+  /* color: #fff; */
   /* bg-blue-900 */
-  background-color: rgba(17, 24, 39, 1);
+  /* background-color: rgba(17, 24, 39, 1); */
+
+  /* bg-gray-200 */
+  background-color: rgba(229, 231, 235, 1);
 }
