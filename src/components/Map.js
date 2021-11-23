@@ -1,6 +1,7 @@
 function Map({ data, title, image }) {
 
   let currentTime = new Date()
+  console.log(currentTime);
   let currentOffset = currentTime.getTimezoneOffset();
   let calcDifference = currentOffset / -60;
 
