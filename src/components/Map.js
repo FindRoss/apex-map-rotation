@@ -1,22 +1,12 @@
 function Map({ data, title, image }) {
 
+  let currentTime = new Date()
+  let currentOffset = currentTime.getTimezoneOffset();
+  let calcDifference = currentOffset / -60;
 
   const timeSetter = time => {
-    let currentTime = new Date()
-    let currentOffset = currentTime.getTimezoneOffset();
-    let calcDifference = currentOffset / -60;
-
-
-    // I am -60 from Coordinated Universal Time (UTC) 
-    // need -60 to equal 1
-    // %60
-    console.log("Time:", currentTime);
-    console.log("TimeOffset: ", currentOffset);
-    console.log(calcDifference);
-
-
-
     let date = new Date(time);
+
     let [hours, minutes] = [date.getHours(), date.getMinutes()];
 
     if (minutes.toString().length === 1) {
@@ -24,6 +14,11 @@ function Map({ data, title, image }) {
     }
     return `${hours + calcDifference}:${minutes}`;
   };
+
+
+  // datetime in "America/Chicago" timezone in the "en-US" locale
+  // "3/22/2021, 5:05:51 PM"
+  // console.log(chicago_datetime_str);
 
 
   return (
@@ -80,3 +75,18 @@ export default Map;
   // if (props.hasOwnProperty("timer")) {
   //   remainingMins = <p>Time remaining: <strong>{props.timer}</strong></p>
   // };
+
+
+
+
+
+  // I am -60 from Coordinated Universal Time (UTC) 
+  // need -60 to equal 1
+  // %60
+  // console.log("Time:", currentTime);
+  // console.log("TimeOffset: ", currentOffset);
+  // console.log(calcDifference);
+
+  // let timeZoneStr = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  // console.log(timeZoneStr);
+  // let localDate = new Date(time).toLocaleString("en-US", { timeZone: timeZoneStr });
