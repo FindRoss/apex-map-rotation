@@ -1,12 +1,12 @@
 function Map({ data, title, image }) {
 
   let currentTime = new Date()
-  console.log(currentTime);
   let currentOffset = currentTime.getTimezoneOffset();
   let calcDifference = currentOffset / -60;
 
   const timeSetter = time => {
-    let date = new Date(time);
+    // have to add the T/Z formatting for Safari
+    let date = new Date(time.replace(/\s/, 'T') + 'Z');
 
     let [hours, minutes] = [date.getHours(), date.getMinutes()];
 
