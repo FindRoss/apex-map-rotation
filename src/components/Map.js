@@ -10,10 +10,12 @@ function Map({ data, title, image }) {
 
     let [hours, minutes] = [date.getHours(), date.getMinutes()];
 
+    console.log(date);
+
     if (minutes.toString().length === 1) {
       minutes = `0${minutes}`;
     }
-    return `${hours + calcDifference}:${minutes}`;
+    return `${hours}:${minutes}`;
   };
 
 
@@ -28,7 +30,7 @@ function Map({ data, title, image }) {
         <img src={image} alt="Worlds Edge" className="h-auto w-full object-fit" />
         <div className="p-8 text-center md:text-left space-y-2">
           <div>
-            <div class="text-gray-700 uppercase">
+            <div className="text-gray-700 uppercase">
               {title}
             </div>
             <h3 className="flex-auto text-xl font-bold my-2">
