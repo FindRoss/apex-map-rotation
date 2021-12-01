@@ -1,8 +1,9 @@
 function Map({ data, title, image }) {
 
-  let currentTime = new Date()
-  let currentOffset = currentTime.getTimezoneOffset();
-  let calcDifference = currentOffset / -60;
+  // Dont need this now!?
+  // let currentTime = new Date()
+  // let currentOffset = currentTime.getTimezoneOffset();
+  // let calcDifference = currentOffset / -60;
 
   const timeSetter = time => {
     // have to add the T/Z formatting for Safari
@@ -24,36 +25,40 @@ function Map({ data, title, image }) {
   // console.log(chicago_datetime_str);
 
 
+
   return (
     <>
-      <figure className="rounded-xl p-0 bg-white text-gray-800 text-white mb-6 md:mb-0 overflow-hidden">
-        <img src={image} alt="Worlds Edge" className="h-auto w-full object-fit" />
-        <div className="p-8 text-center md:text-left space-y-2">
+      <figure className="rounded-xl shadow-sm p-0 bg-white text-gray-800 text-white mb-6 md:mb-0 overflow-hidden">
+        <img src={image} alt="Worlds Edge" className="h-36 w-full object-cover" />
+        <div className="px-8 py-4 text-center space-y-2">
           <div>
-            <div className="text-gray-700 uppercase">
+            <div className="text-gray-500 text-sm uppercase">
               {title}
             </div>
-            <h3 className="flex-auto text-xl font-bold my-2">
+            <h3 className="flex-auto text-2xl font-bold mb-6">
               {data.map}
             </h3>
-            <div>
-              <span className="text-sm font-medium text-gray-600">Start</span>
-              <p className="text-lg font-semibold">
-                {timeSetter(data.readableDate_start)}
-              </p>
+            <div className="flex">
+              <div className="flex-initial">
+                <span className="text-xs font-medium text-gray-500 uppercase">Start</span>
+                <p className="text-lg font-semibold">
+                  {timeSetter(data.readableDate_start)}
+                </p>
+              </div>
+
+              {/* duration */}
+              <div className="flex-1 text-xs flex justify-center items-center border-1">
+                <span className="w-full mx-6 text-center text-gray-600 border-b-2 border-grey-200">{data.DurationInMinutes} mins</span>
+              </div>
+
+              <div className="flex-initial">
+                <span className="text-xs font-medium text-gray-500 uppercase">End</span>
+                <p className="text-lg font-semibold">
+                  {timeSetter(data.readableDate_end)}
+                </p>
+              </div>
             </div>
-            <div>
-              <span className="text-sm font-medium text-gray-600">End</span>
-              <p className="text-lg font-semibold">
-                {timeSetter(data.readableDate_end)}
-              </p>
-            </div>
-            <div>
-              <span className="text-sm font-medium text-gray-600">Duration</span>
-              <p className="text-lg font-semibold">
-                {data.DurationInMinutes} minutes
-              </p>
-            </div>
+
           </div>
         </div>
       </figure>

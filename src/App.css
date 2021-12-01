@@ -11,4 +11,11 @@ body {
 
   /* bg-gray-200 */
   background-color: rgba(229, 231, 235, 1);
+
+  /* bg-blue-50 */
+  /* background-color: rgba(239, 246, 255, 1); */
+}
+
+.durationDivide {
+  border-bottom: 2px black;
 }

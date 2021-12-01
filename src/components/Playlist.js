@@ -25,8 +25,8 @@ function Playlist({ data: { current, next } }) {
 
 
   return (
-    <div className="container sm:mx-auto md:px-0 px-4 py-4">
-      <h2 className="text-xl pb-4">Pubs</h2>
+    <div className="container sm:mx-auto md:px-0 px-4 py-12">
+      <h2 className="text-2xl pb-4">Pubs</h2>
       <div className="sm:flex">
         <div className="flex-1 sm:pr-2">
           <Map
