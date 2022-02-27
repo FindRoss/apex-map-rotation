@@ -1,48 +1,56 @@
-import Map from './Map';
-import { useState, useEffect } from 'react';
+import MapCurrent from './MapCurrent';
+import MapNext from './MapNext';
+import MapRankedCurrent from './MapRankedCurrent';
+import MapRankedNext from './MapRankedNext';
 
-import worldsEdge from '../assets/worlds-edge-map.jpeg';
-import kingsCanyon from '../assets/kings-canyon-map.jpg';
-import olympus from '../assets/olympus-map.jpg';
-import stormPoint from '../assets/storm-point-map.jpg';
 
-function Playlist({ data: { current, next } }) {
+function Playlist({ data: { current, next }, type }) {
 
-  const mapPicker = map => {
-    switch (map) {
-      case "olympus_rotation":
-        return olympus;
-      case "worlds_edge_rotation":
-        return worldsEdge;
-      case "kings_canyon_rotation":
-        return kingsCanyon;
-      case "storm_point_rotation":
-        return stormPoint;
+  "battle_royale"
+  "arenasRanked"
+
+  function switcheroo(t) {
+    let output = "";
+
+    switch (t) {
+      case "battle_royale":
+        output = "BATTLE ROYALE";
+        break;
+      case "arenasRanked":
+        output = "ARENAS RANKED";
+        break;
       default:
-        return null;
+        output = t.toUpperCase();
     }
-  };
 
+    return output;
+  }
 
   return (
-    <div className="container sm:mx-auto md:px-0 px-4 py-12">
-      <h2 className="text-2xl pb-4">Pubs</h2>
-      <div className="sm:flex">
-        <div className="flex-1 sm:pr-2">
-          <Map
-            data={current}
-            title={'Current'}
-            image={mapPicker(current.code)}
-          />
-        </div>
-        <div className="flex-1 sm:pl-2">
-          <Map
-            data={next}
-            title={'Next'}
-            image={mapPicker(next.code)}
-          />
-        </div>
+    <div className="container sm:mx-auto md:px-0 px-4 py-8" id={`#${type}`}>
+      <div className="mb-4">
+        <h2 className="text-sm font-bold p-2 bg-blue-200 rounded shadow-sm inline">{switcheroo(type)}</h2>
       </div>
+
+      {!(type === "ranked") ? (
+        <div className="sm:grid sm:grid-cols-3 gap-4">
+          <div className="sm:col-span-2">
+            <MapCurrent data={current} type={type} />
+          </div>
+          <div>
+            <MapNext data={next} type={type} />
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="mb-8">
+            <MapRankedCurrent data={current} />
+          </div>
+          <div>
+            <MapRankedNext data={next} />
+          </div>
+        </>
+      )}
     </div>
   )
 }

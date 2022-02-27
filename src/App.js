@@ -4,28 +4,31 @@ import './App.css';
 import { getMap } from './getMap';
 import Nav from './components/Nav';
 import Loader from './components/Loader';
-import Map from './components/Playlist';
+import Playlist from './components/Playlist';
 
 require('dotenv').config()
 
 function App() {
-  const [battleRoyale, setBattleRoyale] = useState({});
-  const [ranked, setRanked] = useState({});
+  const [rotations, setRotations] = useState([]);
 
   useEffect(() => {
     async function foo() {
       const mapData = await getMap();
-      setBattleRoyale(mapData.battle_royale);
-      setRanked(mapData.ranked);
+      setRotations(Object.entries(mapData));
     }
     foo();
-
   }, []);
+
+  console.log('in App ken', rotations);
 
   return (
     <div className="h-full">
       <Nav />
-      {(Object.keys(battleRoyale).length === 0) ? <Loader /> : <Map data={battleRoyale} />}
+      {
+        (
+          rotations.map((r, i) => (r.length === 0) ? <Loader /> : <Playlist key={i} type={r[0]} data={r[1]} />)
+        )
+      }
     </div>
   );
 }
