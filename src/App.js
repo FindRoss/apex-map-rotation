@@ -3,6 +3,7 @@ import './App.css';
 
 import { getMap } from './getMap';
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 import Loader from './components/Loader';
 import Playlist from './components/Playlist';
 
@@ -29,6 +30,7 @@ function App() {
           rotations.map((r, i) => (r.length === 0) ? <Loader /> : <Playlist key={i} type={r[0]} data={r[1]} />)
         )
       }
+      <Footer />
     </div>
   );
 }
