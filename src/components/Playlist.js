@@ -29,7 +29,7 @@ function Playlist({ data: { current, next }, type }) {
   return (
     <div className="container sm:mx-auto md:px-0 px-4 py-8" id={`#${type}`}>
       <div className="mb-4">
-        <h2 className="text-sm font-bold p-2 bg-blue-200 rounded shadow-sm inline">{switcheroo(type)}</h2>
+        <h2 className="text-sm font-bold p-2 bg-white rounded shadow-sm inline">{switcheroo(type)}</h2>
       </div>
 
       {!(type === "ranked") ? (

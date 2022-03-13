@@ -1,8 +1,8 @@
-import mirage from '../assets/mirage-transparent.png';
+// import mirage from '../assets/mirage-transparent.png';
 
 const Footer = () => {
   return (
-    'foobar'
+    <div>footer</div>
   )
 }
 

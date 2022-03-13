@@ -20,29 +20,21 @@ function App() {
     foo();
   }, []);
 
-  console.log('in App ken', rotations);
+  console.log('rotations', rotations.length)
 
   return (
     <div className="h-full">
       <Nav />
       {
-        (
-          rotations.map((r, i) => (r.length === 0) ? <Loader /> : <Playlist key={i} type={r[0]} data={r[1]} />)
-        )
+        (rotations.length === 0) ?
+          <Loader /> :
+          rotations.map((r, i) => <Playlist key={i} type={r[0]} data={r[1]} />)
+
       }
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
 
 export default App;
-
-
-
-// let d = new Date();
-// let n = d.getTimezoneOffset();
-// -120  
-// -2 ... the  5 - -2 works and vice versa
-// let timezoneDifference = n / 60;
-// console.log(timezoneDifference);
 
