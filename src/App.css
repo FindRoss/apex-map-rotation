@@ -5,17 +5,25 @@ body,
 }
 
 body {
-  /* color: #fff; */
-  /* bg-blue-900 */
-  /* background-color: rgba(17, 24, 39, 1); */
-
   /* bg-gray-200 */
   background-color: rgba(229, 231, 235, 1);
-
-  /* bg-blue-50 */
-  /* background-color: rgba(239, 246, 255, 1); */
 }
 
 .durationDivide {
   border-bottom: 2px black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+p,
+div,
+span {
+  font-family: sans-serif;
 }
