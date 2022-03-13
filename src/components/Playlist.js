@@ -43,7 +43,7 @@ function Playlist({ data: { current, next }, type }) {
         </div>
       ) : (
         <>
-          <div className="mb-8">
+          <div className="mb-4">
             <MapRankedCurrent data={current} />
           </div>
           <div>

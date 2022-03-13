@@ -9,7 +9,7 @@ function Nav() {
           <span className="inline mr-2 rounded-full bg-gray-200 p-2">
             <img src={logo} alt="apex legends logo" className="h-7 w-7" />
           </span>
-          <span className="sm:text-2xl">Apex Map Rotation</span>
+          <span className="sm:text-2xl">Apex Legengs Map Rotation</span>
         </div>
       </div>
     </div>

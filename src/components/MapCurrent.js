@@ -14,9 +14,6 @@ function MapCurrent({ data }) {
 
   remainingPer();
 
-
-
-
   return (
     <>
       <figure className="h-full rounded shadow-sm p-0 bg-white text-gray-800 text-white mb-6 md:mb-0 overflow-hidden">

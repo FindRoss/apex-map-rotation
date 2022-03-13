@@ -31,7 +31,7 @@ function App() {
           rotations.map((r, i) => <Playlist key={i} type={r[0]} data={r[1]} />)
 
       }
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
