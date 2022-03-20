@@ -11,7 +11,7 @@ const Footer = () => {
           </div>
           <div class="mt-8 sm:mt-0">
             <h5 className="font-bold">Get in touch</h5>
-            <p className="text-sm text-slate-700">Got a suggestion? Reach out via <a href="mailto:apexlegendsmap@gmail.com" rel="noreferrer" className="underline">email</a>.</p>
+            <p className="text-sm text-slate-700">Got a suggestion? Reach out at apexlegendsmap@gmail.com.</p>
           </div>
         </div>
       </div>

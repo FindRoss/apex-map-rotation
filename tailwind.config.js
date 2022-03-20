@@ -4,7 +4,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     container: {
-      // default breakpoints but with 40px removed
+      padding: {
+        DEFAULT: '0.75rem',
+        sm: '0',
+      },
       screens: {
         sm: '640px',
         md: '768px',
@@ -19,3 +22,6 @@ module.exports = {
   },
   plugins: [],
 }
+
+
+
