@@ -25,7 +25,9 @@ function MapNext({ data }) {
 
             {/* duration */}
             <div className="flex-1 text-xs flex justify-center items-center border-1 mx-2">
-              <span className="w-full text-center text-gray-600 pb-1 border-b-4 border-grey-200">{data.DurationInMinutes} mins</span>
+              <span className="w-full text-center pb-1 border-b-4 border-grey-200">
+                <span className="text-gray-600">{data.DurationInMinutes} mins</span>
+              </span>
             </div>
 
             <div className="flex-initial">

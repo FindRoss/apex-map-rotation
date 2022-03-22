@@ -20,8 +20,6 @@ function App() {
     foo();
   }, []);
 
-  console.log('rotations', rotations.length)
-
   return (
     <div className="h-full">
       <Nav />

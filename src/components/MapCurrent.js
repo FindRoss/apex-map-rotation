@@ -1,7 +1,7 @@
 import { timeSetter } from '../timeSetter'
 
 function MapCurrent({ data }) {
-
+  // Countdown timer guides: https://dev.to/zhiyueyi/how-to-create-a-simple-react-countdown-timer-4mc3
 
   const remainingPer = () => {
     let duration = data.DurationInSecs;
@@ -11,7 +11,6 @@ function MapCurrent({ data }) {
 
     return `${calc}%`;
   }
-
   remainingPer();
 
   return (
@@ -38,8 +37,9 @@ function MapCurrent({ data }) {
 
             {/* duration */}
             <div className="relative flex flex-col flex-1 text-xs justify-center items-center border-1 mx-4">
-              <span className="relative w-full text-center text-gray-600 pb-2 border-b-4 border-grey-200">
-                {data.DurationInMinutes} mins
+              <span className="relative w-full text-center pb-2 border-b-4 border-grey-200">
+                <span className="text-gray-500 hidden">Remaining: </span>
+                <span className="text-gray-600">{data.DurationInMinutes} mins</span>
                 <span className="absolute border-blue-500 border-t-4 left-0" style={{ bottom: "-4px", right: remainingPer() }}></span>
               </span>
 
@@ -64,30 +64,3 @@ export default MapCurrent;
 
 
 
-  // let remainingMins;
-
-  // if (data.hasOwnProperty("timer")) {
-  //   remainingMins = <p>Time remaining: <strong>{data.timer}</strong></p>
-  // };
-
-  // original remainingMinds was like:
-  // let remainingMins;
-
-  // if (props.hasOwnProperty("timer")) {
-  //   remainingMins = <p>Time remaining: <strong>{props.timer}</strong></p>
-  // };
-
-
-
-
-
-  // I am -60 from Coordinated Universal Time (UTC)
-  // need -60 to equal 1
-  // %60
-  // console.log("Time:", currentTime);
-  // console.log("TimeOffset: ", currentOffset);
-  // console.log(calcDifference);
-
-  // let timeZoneStr = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  // console.log(timeZoneStr);
-  // let localDate = new Date(time).toLocaleString("en-US", { timeZone: timeZoneStr });
