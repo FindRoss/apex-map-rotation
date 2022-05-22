@@ -15,6 +15,10 @@ function App() {
   useEffect(() => {
     async function foo() {
       const mapData = await getMap();
+
+      // Remove control from the data.
+      delete mapData.control;
+
       setRotations(Object.entries(mapData));
     }
     foo();
@@ -28,7 +32,6 @@ function App() {
           (rotations.length === 0) ?
             <Loader /> :
             rotations.map((r, i) => <Playlist key={i} type={r[0]} data={r[1]} />)
-
         }
       </div>
       <Footer />
