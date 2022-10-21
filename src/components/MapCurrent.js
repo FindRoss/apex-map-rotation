@@ -1,17 +1,22 @@
-import { timeSetter } from '../timeSetter'
+import { timeSetter } from '../timeSetter';
+import { useState, useEffect } from 'react';
+// Countdown timer guides: https://dev.to/zhiyueyi/how-to-create-a-simple-react-countdown-timer-4mc3
 
 function MapCurrent({ data }) {
-  // Countdown timer guides: https://dev.to/zhiyueyi/how-to-create-a-simple-react-countdown-timer-4mc3
+  const [percent, setPercent] = useState(0);
 
-  const remainingPer = () => {
+  useEffect(() => {
     let duration = data.DurationInSecs;
     let remaining = data.remainingSecs;
-
     let calc = Math.floor((remaining / duration) * 100);
 
-    return `${calc}%`;
+    setPercent(calc);
+  }, [data.DurationInSecs, data.remainingSecs]);
+
+  const percentStyle = {
+    bottom: "-4px",
+    right: percent + "%"
   }
-  remainingPer();
 
   return (
     <>
@@ -40,7 +45,7 @@ function MapCurrent({ data }) {
               <span className="relative w-full text-center pb-2 border-b-4 border-grey-200">
                 <span className="text-gray-500 hidden">Remaining: </span>
                 <span className="text-gray-600">{data.DurationInMinutes} mins</span>
-                <span className="absolute border-blue-500 border-t-4 left-0" style={{ bottom: "-4px", right: remainingPer() }}></span>
+                <span className="absolute border-blue-500 border-t-4 left-0" style={percentStyle}></span>
               </span>
 
             </div>

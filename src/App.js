@@ -17,7 +17,9 @@ function App() {
       const mapData = await getMap();
 
       // Remove control from the data.
-      delete mapData.control;
+      // delete mapData.control;
+
+      console.log(mapData);
 
       setRotations(Object.entries(mapData));
     }
