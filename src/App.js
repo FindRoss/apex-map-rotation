@@ -16,8 +16,8 @@ function App() {
     async function foo() {
       const mapData = await getMap();
 
-      // Remove control from the data.
-      // delete mapData.control;
+      // Remove LTM because I think its dead.
+      delete mapData.ltm;
 
       console.log(mapData);
 
