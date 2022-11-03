@@ -13,6 +13,18 @@ function MapCurrent({ data }) {
     setPercent(calc);
   }, [data.DurationInSecs, data.remainingSecs]);
 
+  // THIS IS NOT DOING ANYTHING WAS JUST TRYING TO DO THIS HERE BUT NOT WORKING
+  // Change to days if its the start of a season and 7 days = 140000 minutes
+  useEffect(() => {
+    // 1400 mins is one day
+    let durationMinsOutput = data.DurationInMinutes;
+    if (data.DurationInMinutes > 1400) {
+      durationMinsOutput = (data.DurationInMinutes / 1400).toFixed();
+    }
+
+    console.log('useEffect is running finally', data.DurationInMinutes);
+  }, [])
+
   const percentStyle = {
     bottom: "-4px",
     right: percent + "%"
@@ -44,7 +56,10 @@ function MapCurrent({ data }) {
             <div className="relative flex flex-col flex-1 text-xs justify-center items-center border-1 mx-4">
               <span className="relative w-full text-center pb-2 border-b-4 border-grey-200">
                 <span className="text-gray-500 hidden">Remaining: </span>
-                <span className="text-gray-600">{data.DurationInMinutes} mins</span>
+                <span className="text-gray-600">
+                  {(data.DurationInMinutes > 1400) ? (data.DurationInMinutes / 1400).toFixed() : data.DurationInMinutes}
+                  {(data.DurationInMinutes > 1400) ? "days" : "mins"}
+                </span>
                 <span className="absolute border-blue-500 border-t-4 left-0" style={percentStyle}></span>
               </span>
 
